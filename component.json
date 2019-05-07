@@ -1,0 +1,237 @@
+{
+    "title": "Firebase Hosting",
+    "description": "The Firebase Hosting REST API enables programmatic and customizable deployments to your Firebase-hosted sites. Use this REST API to deploy new or updated hosting configurations and content files.",
+    "docsUrl": "https://firebase.google.com/docs/hosting/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/firebasehosting/v1beta1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://firebasehosting.googleapis.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "firebasehosting_sites_domains_delete": {
+            "main": "./lib/actions/firebasehosting_sites_domains_delete.js",
+            "title": "Deletes the existing domain mapping on the specified site.",
+            "description": "Deletes the existing domain mapping on the specified site.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_domains_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_domains_get": {
+            "main": "./lib/actions/firebasehosting_sites_domains_get.js",
+            "title": "Gets a domain mapping on the specified site.",
+            "description": "Gets a domain mapping on the specified site.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_domains_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_versions_patch": {
+            "main": "./lib/actions/firebasehosting_sites_versions_patch.js",
+            "title": "Updates the specified metadata for a version. Note that this method will\nfail with `FAILED_PRECONDITION` in the event of an invalid state\ntransition. The only valid transition for a version is currently from a\n`CREATED` status to a `FINALIZED` status.\nUse [`DeleteVersion`](../sites.versions/delete) to set the status of a\nversion to `DELETED`.",
+            "description": "Updates the specified metadata for a version. Note that this method will\nfail with `FAILED_PRECONDITION` in the event of an invalid state\ntransition. The only valid transition for a version is currently from a\n`CREATED` status to a `FINALIZED` status.\nUse [`DeleteVersion`](../sites.versions/delete) to set the status of a\nversion to `DELETED`.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_versions_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_domains_update": {
+            "main": "./lib/actions/firebasehosting_sites_domains_update.js",
+            "title": "Updates the specified domain mapping, creating the mapping as if it does\nnot exist.",
+            "description": "Updates the specified domain mapping, creating the mapping as if it does\nnot exist.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_domains_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_domains_list": {
+            "main": "./lib/actions/firebasehosting_sites_domains_list.js",
+            "title": "Lists the domains for the specified site.",
+            "description": "Lists the domains for the specified site.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_domains_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_domains_create": {
+            "main": "./lib/actions/firebasehosting_sites_domains_create.js",
+            "title": "Creates a domain mapping on the specified site.",
+            "description": "Creates a domain mapping on the specified site.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_domains_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_versions_files_list": {
+            "main": "./lib/actions/firebasehosting_sites_versions_files_list.js",
+            "title": "Lists the remaining files to be uploaded for the specified version.",
+            "description": "Lists the remaining files to be uploaded for the specified version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_versions_files_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_releases_list": {
+            "main": "./lib/actions/firebasehosting_sites_releases_list.js",
+            "title": "Lists the releases that have been created on the specified site.",
+            "description": "Lists the releases that have been created on the specified site.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_releases_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_releases_create": {
+            "main": "./lib/actions/firebasehosting_sites_releases_create.js",
+            "title": "Creates a new release which makes the content of the specified version\nactively display on the site.",
+            "description": "Creates a new release which makes the content of the specified version\nactively display on the site.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_releases_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_versions_create": {
+            "main": "./lib/actions/firebasehosting_sites_versions_create.js",
+            "title": "Creates a new version for a site.",
+            "description": "Creates a new version for a site.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_versions_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "firebasehosting_sites_versions_populateFiles": {
+            "main": "./lib/actions/firebasehosting_sites_versions_populateFiles.js",
+            "title": "Adds content files to a version.",
+            "description": "Adds content files to a version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/firebasehosting_sites_versions_populateFiles.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

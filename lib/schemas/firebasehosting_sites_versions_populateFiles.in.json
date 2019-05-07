@@ -1,0 +1,58 @@
+{
+    "type": "object",
+    "properties": {
+        "parent": {
+            "required": true,
+            "type": "string"
+        },
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "files": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "A set of file paths to the hashes corresponding to assets that should be\nadded to the version. Note that a file path to an empty hash will remove\nthe path from the version. Calculate a hash by Gzipping the file then\ntaking the SHA256 hash of the newly compressed file.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

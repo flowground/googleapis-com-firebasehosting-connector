@@ -1,0 +1,179 @@
+{
+    "type": "object",
+    "properties": {
+        "parent": {
+            "required": true,
+            "type": "string"
+        },
+        "access_token": {
+            "type": "string"
+        },
+        "alt": {
+            "type": "string",
+            "enum": [
+                "json",
+                "media",
+                "proto"
+            ],
+            "default": "json"
+        },
+        "callback": {
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "uploadType": {
+            "type": "string"
+        },
+        "upload_protocol": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The intended behavior and status information of a domain.",
+            "properties": {
+                "domainName": {
+                    "description": "Required. The domain name of the association.",
+                    "type": "string"
+                },
+                "domainRedirect": {
+                    "description": "If set, the domain should redirect with the provided parameters.",
+                    "properties": {
+                        "domainName": {
+                            "description": "Required. The domain name to redirect to.",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Required. The redirect status code.",
+                            "enum": [
+                                "REDIRECT_TYPE_UNSPECIFIED",
+                                "MOVED_PERMANENTLY"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "provisioning": {
+                    "description": "Output only. Information about the provisioning of certificates and the\nhealth of the DNS resolution for the domain.",
+                    "properties": {
+                        "certChallengeDiscoveredTxt": {
+                            "description": "The TXT records (for the certificate challenge) that were found at the last\nDNS fetch.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "certChallengeDns": {
+                            "description": "The DNS challenge for generating a certificate.",
+                            "properties": {
+                                "domainName": {
+                                    "description": "The domain name upon which the DNS challenge must be satisfied.",
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "description": "The value that must be present as a TXT record on the domain name to\nsatisfy the challenge.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "certChallengeHttp": {
+                            "description": "The HTTP challenge for generating a certificate.",
+                            "properties": {
+                                "path": {
+                                    "description": "The URL path on which to serve the specified token to satisfy the\ncertificate challenge.",
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "description": "The token to serve at the specified URL path to satisfy the certificate\nchallenge.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "certStatus": {
+                            "description": "The certificate provisioning status; updated when Firebase Hosting\nprovisions an SSL certificate for the domain.",
+                            "enum": [
+                                "CERT_STATUS_UNSPECIFIED",
+                                "CERT_PENDING",
+                                "CERT_MISSING",
+                                "CERT_PROCESSING",
+                                "CERT_PROPAGATING",
+                                "CERT_ACTIVE",
+                                "CERT_ERROR"
+                            ],
+                            "type": "string"
+                        },
+                        "discoveredIps": {
+                            "description": "The IPs found at the last DNS fetch.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "dnsFetchTime": {
+                            "description": "The time at which the last DNS fetch occurred.",
+                            "format": "google-datetime",
+                            "type": "string"
+                        },
+                        "dnsStatus": {
+                            "description": "The DNS record match status as of the last DNS fetch.",
+                            "enum": [
+                                "DNS_STATUS_UNSPECIFIED",
+                                "DNS_PENDING",
+                                "DNS_MISSING",
+                                "DNS_PARTIAL_MATCH",
+                                "DNS_MATCH",
+                                "DNS_EXTRANEOUS_MATCH"
+                            ],
+                            "type": "string"
+                        },
+                        "expectedIps": {
+                            "description": "The list of IPs to which the domain is expected to resolve.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "site": {
+                    "description": "Required. The site name of the association.",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Output only. Additional status of the domain association.",
+                    "enum": [
+                        "DOMAIN_STATUS_UNSPECIFIED",
+                        "DOMAIN_CHANGE_PENDING",
+                        "DOMAIN_ACTIVE",
+                        "DOMAIN_VERIFICATION_REQUIRED",
+                        "DOMAIN_VERIFICATION_LOST"
+                    ],
+                    "type": "string"
+                },
+                "updateTime": {
+                    "description": "Output only. The time at which the domain was last updated.",
+                    "format": "google-datetime",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
